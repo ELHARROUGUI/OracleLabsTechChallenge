@@ -1,0 +1,73 @@
+<!--
+ Copyright (c) 2014, 2019, Oracle and/or its affiliates.
+ The Universal Permissive License (UPL), Version 1.0
+ -->
+<div class="oj-hybrid-padding">
+  <h1>Olin workspace</h1>
+  <oj-label for="code-input">Code input</oj-label>
+  <oj-input-text id="code-input" style="max-width:70%" placeholder="SeriesA\tSeriesB\tSeriesC\n1\t2\t3\n4\t5\t6\n2\t4\t3"
+    data-bind="textInput: codeInput"></oj-input-text>
+  <input id="submitButton" type="submit" data-bind="click: submitButtonAction, ojComponent: {component: 'ojButton', label: 'Execute'}" />
+  <hr><br>
+
+  <oj-label for="execution-result">Execution result</oj-label>
+  <code><span id="execution-result" data-bind="text: executionResult" ></span></code>
+  <hr><br>
+
+  <oj-label for="result-chart">Result visualization</oj-label>
+  <oj-select-one id="type-chart" value="{{chartTypeOptionValue}}" style="max-width:20em">
+    <oj-option disabled>Select chart type</oj-option>
+    <oj-option value="bar">Bar</oj-option>
+    <oj-option value="line">Line</oj-option>
+    <oj-option value="area">Area</oj-option>
+    <oj-option value="lineWithArea">LineWithArea</oj-option>
+    <oj-option value="combo">Combo</oj-option>
+    <oj-option value="pie">Pie</oj-option>
+    <oj-option value="funnel">Funnel</oj-option>
+    <oj-option value="bubble">Bubble</oj-option>
+  </oj-select-one>
+
+  <oj-select-one id="stack-chart" value="{{chartStackValue}}" style="max-width:20em">
+    <oj-option disabled>Stack</oj-option>
+    <oj-option value="on">On</oj-option>
+    <oj-option value="off">Off</oj-option>
+  </oj-select-one>
+
+  <oj-select-one id="type-chart" value="{{chartOrientationValue}}" style="max-width:20em">
+    <oj-option disabled>Orientation</oj-option>
+    <oj-option value="horizontal">Horizontal</oj-option>
+    <oj-option value="vertical">Vertical</oj-option>
+  </oj-select-one>
+
+  <oj-select-one id="type-chart" value="{{sortingValue}}" style="max-width:20em">
+    <oj-option disabled>Sorting</oj-option>
+    <oj-option value="off">Off</oj-option>
+    <oj-option value="ascending">Ascending</oj-option>
+    <oj-option value="descending">Descending</oj-option>
+  </oj-select-one>
+
+
+  <oj-select-one id="type-chart" value="{{dataCursorValue}}" style="max-width:20em">
+    <oj-option disabled>Data Cursor</oj-option>
+    <oj-option value="auto">Auto</oj-option>
+    <oj-option value="on">On</oj-option>
+    <oj-option value="off">Off</oj-option>
+  </oj-select-one>
+
+  <oj-select-one id="type-chart" value="{{dataCursorBehaviorValue}}" style="max-width:20em">
+    <oj-option disabled>Data Cursor Behavior</oj-option>
+    <oj-option value="smooth">Smooth</oj-option>
+    <oj-option value="snap">Snap</oj-option>
+  </oj-select-one>
+
+  <oj-legend id="legend1" aria-controls="olin-basic-chart barChart" orientation="horizontal" sections="[[legendSections]]"
+    halign="center" valign="middle" hidden-categories="{{hiddenCategoriesValue}}" hide-and-show-behavior="on" style="width:100%; height:60px;">
+  </oj-legend>
+
+  <oj-chart id="olin-basic-chart" series="[[datasource]]" type="[[chartTypeOptionValue]]" stack="[[chartStackValue]]"
+    sorting="[[sortingValue]]" orientation="[[chartOrientationValue]]" animation-on-display="auto"
+    animation-on-data-change="auto" hover-behavior="dim" groups="[[chartGroups]]" hidden-categories="{{hiddenCategoriesValue}}"
+    data-cursor="[[dataCursorValue]]" data-cursor-behavior="[[dataCursorBehaviorValue]]" legend.rendered="off" style="width:100%;height:325px;float:left;" />
+
+</div>
+</div>
